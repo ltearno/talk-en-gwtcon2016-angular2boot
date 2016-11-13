@@ -1,5 +1,5 @@
 = Angular 2 Boot
-:author: Arnaud Tournier - @ltearno - LTE Consulting - JavaOne 2016 - San Francisco
+:author: Arnaud Tournier - @ltearno - LTE Consulting - GWT Con 2016 - Firenze
 :email: ltearno@gmail.com
 :backend: revealjs
 :deckjs_theme: neon
@@ -17,21 +17,21 @@
 
 **LTE Consulting** founder.
 
-Speaker **Devoxx France**, **JUGs**, **GWT.create**, **GWTCon**, etc...
+Speaker: **Java One**, **Devoxx France**, **GWT.create**, **GWTCon**, **JUGs**, etc...
 
-Training : Java, C#, .net, Typescript, GWT, Angular 2, JavaEE, Spring, git...
+Training: Java, C#, .net, Typescript, GWT, Angular 2, JavaEE, Spring, git...
 
-Email : ltearno@gmail.com
+Email: ltearno@gmail.com
 
-Twitter : https://twitter.com/ltearno[@ltearno]
+Twitter: https://twitter.com/ltearno[@ltearno]
 
-Web : http://www.lteconsulting.fr[www.lteconsulting.fr]
+Web: http://www.lteconsulting.fr[www.lteconsulting.fr]
 
 Full stack (x86_64 to JavaScript)
 
 == This presentation is online!
 
-http://lteconsulting.fr/angular2boot-javaone/[lteconsulting.fr/angular2boot-javaone]
+http://lteconsulting.fr/angular2boot-gwtcon2016/[lteconsulting.fr/angular2boot-gwtcon2016]
 
 _works on your phone too ;)_
 
@@ -48,39 +48,32 @@ A new RIA paradigm for Java : programming Angular 2 with Java 8.
 
 http://lteconsulting.fr/angular2boot/[lteconsulting.fr/angular2boot]
 
-== A more technical title...
+=== A more technical title...
 
 Integrating Angular 2 and GWT 2.8:
 
 **problems** and **solutions**...
 
-== Why?
+=== Why?
+
+I want to benefit from the **best UI coding paradigms** (Data binding, DI, ...).
+
+I want **strong typing** and **powerful IDE** tools.
+
+I want to be **more productive**.
+
+I want to be in phase with the **future**.
+
+=== The problem
 
 Angular 2 natively supports Typescript and Javascript.
 
 Angular 2 for Dart is maintained by the Dart team.
 
-Nevertheless **Java** has all the required features. And it brings strong typing.
+But Java is not in the party, **let's remedy!**
 
 image::angular-languages.png[]
 
-Why is not Java in the party? **Let's remedy!**
-
-[%notitle]
-== .
-
-It all started as an experiment...
-
-But since it rocks, I wanted to show it to the world!
-
-[NOTE.speaker]
---
-Qui ici (a) fait du GWT ? En refera ?
-
-Qui a un backend Java et front en JS ?
-
-Java permet de maitriser la complexité d'une grosse base de code (donc plutot grosses applications). Taille moyenne des applications GWT : au moins 100000 loc.
---
 
 [data-background="images/ingredients.jpg"]
 == The recipe
@@ -90,20 +83,19 @@ Java permet de maitriser la complexité d'une grosse base de code (donc plutot g
 === Angular 2
 
 - non invasive,
-- efficient,
 - modern architecture, simple and effective.
 
-=== GWT 2.8
+=== GWT 2.8 Core
 
 - **Java 8** (strong typing, lambdas, streams, ...)
 - **JsInterop** (easy integration with JS)
-- **SuperDevMode** (compile on reload)
-- Optimized compilation (generated js size, efficiency)
+- **SuperDevMode** (incremental fast compile on reload)
+- Optimized compilation for production (js size, efficiency)
 
 === JSR 269
 
 - Java Annotation Processing API,
-- Code generation integrated with compilation,
+- Code generation integrated within Java compilation,
 - Boilerplate code generation.
 
 === Spring Boot
@@ -116,69 +108,28 @@ Java permet de maitriser la complexité d'une grosse base de code (donc plutot g
 
 
 
-== Presentation structure
-
-- Angular 2,
-- GWT,
-- Angular2Boot,
-- Demonstration,
-- Challenges,
-- Roadmap,
-- Q&A
-
-
-
 
 == Angular
 
 Angular 1 was released in 2009.
 
-=== At that time, there was not a lot of Javascript RIA frameworks
+A full rewrite gave birth to Angular 2 in 2016.
 
-=== Angular brought the **Data binding** into the browser
+Much better and simpler architecture !
 
-=== And you suddendly were able to write a todo list application in 15 lines of code!
+=== Angular 2 fundamentals
 
-=== Enormous success!
-
-image::angular-success.png[]
-
-=== Millions of applications were built with Angular
-
-=== When it came to evolve the framework, the team decided to build upon the (enormous) return of experience they had...
-
-=== And they decided to write Angular 2 from scratch!
-
-=== Why? What were the problems?
-
-=== Architectural problems...
-
-- Dynamic scoping,
-- Slow dirty checking,
-- Insane amount of directives to learn,
-- Difficult debugging...
-
-
-== Angular 2 fundamentals
-
-- Modules,
 - Components,
 - Dependency Injection,
-- Change detection.
-
-=== Modules
-
-Parts of the application are encapsulated into _modules_.
-
-Leads to clean code and more advanced AOT compilation.
+- Data binding and change detection.
 
 === Components
 
-Basic blocks of your application.
+Most basic building block of the application.
 
-A component is:
+A component is a class with:
 
-- a _view_ (template),
+- a _view_ (an HTML template),
 - and a _model_ (data and methods).
 
 Interaction between view and model through _data binding_.
@@ -189,7 +140,9 @@ Each component is responsible for a part of the DOM tree.
 
 Components also form a tree.
 
-Components can interacts with each other through cleanly defined ways.
+_A bit like the GWT Widgets..._
+
+Components interacts with each other through cleanly defined ways.
 
 === Components tree
 
@@ -207,13 +160,13 @@ Each component has a Dependency Injector.
 Those also form a tree.
 
 
-=== Change detection
+=== Data binding
 
 Angular uses Zone.js to track changes.
 
 Zones == _asynchronous TLS_.
 
-Preserve an execution context accross asynchronous calls.
+Preserve an execution context across asynchronous calls.
 
 _(done by patching most of the browsers async functions)_
 
@@ -221,277 +174,47 @@ _(done by patching most of the browsers async functions)_
 
 
 
-== GWT
+== GWT 2.8
 
-=== History
+- Javascript ecosystem rocks! (we need to leverage that)
+- Evergreen browsers are compatible (not requiring a layer above them anymore)
+- Widgets and so many things will be dropped anyway!
+- JsInterop eases JS/Java integration.
+- Java 8 language.
 
-First version released in 2006.
+It's time for your application to prepare and find a way for the future.
 
-Really big success!
+=== GWT in Angular2Boot
 
-Community of ~ 100k+ developpers.
-
-=== Context
-
-At that time, Javascript ecosystem sucked!
-
-Browsers were incompatible...
-
-Developping complex web applications was ... hell!
-
-=== What GWT brought
-
-- Hide browsers inconsistencies,
-- Widgets to build the UI : Swing-like,
-- A complete toolkit for the Web (resource caching, RPC, ...),
-- A very good compiler!
-
-[data-transition=fade-in]
-=== Compiler power sample
-
-[source,java]
-----
-Shape s = new Square(2);
-int a = s.getArea();
-----
-
-[data-transition=fade-in]
-=== Becomes
-
-[source,java]
-----
-Square s = new Square(2); // No need for the Shape interface
-int a = s.getArea();
-----
-
-[data-transition=fade-in]
-=== Becomes
-
-[source,java]
-----
-Square s = new Square(2);
-int a = s.length * s.length; // Method inlining
-----
-
-[data-transition=fade-in]
-=== And then
-
-[source,java]
-----
-int a = 4; // constants resolution
-----
-
-All that at **compile time**!
-
-=== And now in 2016
-
-- The Javascript ecosystem really rocks! (we need to leverage that)
-- The evergreen browsers are compatible (do not require a layer above them anymore)
-
-=== GWT problems
-
-- The compilation was (really very) slow.
-- GWT did too much: _build system, optimisations, permutations, not following standards, proprietary RPC, code change detection, templating..._
-- Many things GWT did are now available as _standard_ web tools.
-
-=== In other words
-
-GWT is now very far away from the Web we know today.
-
-[%notitle]
-=== .
-
-[cols="2*"]
-|===
-|GWT-RPC
-|REST Json Web services
-
-|Widgets
-|Native HTML5 (ok lacks encapsulation)
-
-|Code splitting
-|ES7 modules, WebPack code splitting
-
-|Optimisations
-|Closure compiler, ...
-
-|Code Generators
-|JSR-269
-
-|JVM debugging
-|SourceMaps
-|===
-
-=== GWT 2.8
-
-GWT 2.8 is the transition version to a new future:
-
-- JsInterop,
-- Java 8 language,
-- Time to drop Widgets and old stuff!
-
-=== GWT 3 (aka J2Cl)
-
-_not released yet_
-
-- Lightweight,
-- More unopiniated (can be integrated anywhere),
-- Drops a lot of functionalities done now by standard tools.
-
-
-== GWT fundamentals
-
-=== The compiler
-
-- Preserves Java semantic,
-- Still does a bunch of optimisations (pruning, static analysis..),
-- Mostly ouputs modern Javascript, optimizable with Closure Compiler.
-
-=== JsInterop
-
-A very easy way to integrate Javascript and Java code.
-
-A two-way road (JS->Java, Java->JS)
-
-=== JsInterop
-
-To use JS code from Java, you just have to describe the JS type :
-
-[source,language="java"]
-----
-@JsType( isNative = true )
-public class XMLHttpRequest
-{
-  @JsMethod
-  public native void open( String method, String url );
-
-  @JsMethod
-  public native void send( Object data );
-
-  // ...
-}
-----
-
-=== JsInterop
-
-Then use the class as a normal Java class
-
-[source,java]
-----
-XMLHttpRequest request = new XMLHttpRequest();
-
-request.open( "GET", "service.json" );
-request.setOnreadystatechange( event -> {
-  ...
-};
-
-request.send( ... );
-----
-
-=== JsInterop
-
-And the other way around (exporting Java to JS)
-
-[source,java]
-----
-package fr.lteconsulting;
-
-@JsType
-public class Robot
-{
-  @JsProperty
-  private boolean wifiOn;
-
-  @JsConstructor
-  public Robot( DataService dataService ) { ... }
-
-  @JsMethod
-  protected void move() { ... }
-}
-----
-
-=== JsInterop
-
-In Javascript :
-
-[source,javascript]
-----
-let robot = new fr.lteconsulting.Robot( dataService )
-
-robot.wifiOn = true
-
-robot.move()
-----
-
-_ps: can we drop semicolons in Java?_
-
-
-=== SuperDevMode
-
-- Fast incremental compiler for development,
-- Compile time function of code changes and not code base size!
-
+- Only use the compiler,
+- JsInterop used a lot,
+- No widgets, no `User` module (unless you want to mix legacy GWT and Angular)
 
 
 
 == JSR 269 - Pluggable Annotation Processing API
 
-Code generation in Java (source, byte-code and resource).
+_Shown here last year!_
+
+Standard API for code generation in Java.
+
+_(Used to generate the boiler plate code Angular requires.)_
+
+Registered _annotation processors_ receive the program's AST 
+and can then generate files (sources, byte-code or resources) which are part of the compilation.
 
 Integrated with the Java compiler.
 
-Based on annotations. The developer's annotation processor receives parts of the program's AST.
-
 === GOOD POINTS
-
-API is easy to use.
 
 Generated code is visible and debuggable,
 
-Generated code is known before end of compilation so you can reference it in your code.
+You can reference the generated code in your code.
 
 No overhead at runtime.
 
 (Does not depend on byte code: GWT compatible)
 
-=== HOW IT WORKS
-
-You must register your Annotation processors (through SPI).
-
-Java source files are compiled during rounds.
-
-Each round, processors are activated and receive the program's AST.
-
-They can then generate files which will be part of the next round.
-
-When no file is generated during a round, real compilation happens.
-
-=== Annotation processor
-
-[source,java]
-----
-@SupportedAnnotationTypes("fr.lteconsulting.AutoUi")
-@SupportedSourceVersion(SourceVersion.RELEASE_8)
-public class AutoUiProcessor extends AbstractProcessor  {
-    @Override
-    public boolean process(
-            Set<TypeElement> annotations,
-            RoundEnvironment round) {
-        for(TypeElement element : 
-            round.getElementsAnnotatedWith(AutoUi.class)) {
-            ...
-            JavaFileObject javaFile = filer.createSourceFile(classFqn);
-            Writer writer = javaFile.openWriter();
-            ...
-        }
-        return true;
-    }
-}
-----
-
-=== Java workflow
-
-image::javac-flow.png[]
 
 === Just one more thing
 
@@ -509,111 +232,20 @@ image::error-in-eclipse.png[]
 
 == Angular2Boot
 
-- Angular2Gwt: GWT and Angular2 integration library,
-- Spring boot: powerful and simple backend,
-- Dead simple bootstrapping to begin development.
-
-=== Easy to try
-
-[source]
-----
-mvn archetype:generate \
-  -DarchetypeGroupId=fr.lteconsulting \
-  -DarchetypeArtifactId=angular2-gwt.archetype \
-  -DarchetypeVersion=1.5
-  
-mvn clean install
-
-java -jar target/YOUR_ARTIFACT_ID.jar
-----
-
-=== Compile on reload
-
-[source]
-----
-# Backend
-mvn spring-boot:run
-
-# Frontend
-mvn gwt:run-codeserver
-----
-
-=== Production code
-
-[source]
-----
-mvn clean install
-----
-
-You get an autonomous fat jar!
-
-=== Architecture
-
-[%notitle]
-[data-transition=none]
-[data-background="images/archi-survol.png"]
-[data-background-size=contain]
-=== .
-
-[%notitle]
-[data-transition=none]
-[data-background-size=contain]
-[data-background="images/archi-compil.png"]
-=== .
-
-[%notitle]
-[data-transition=none]
-[data-background-size=contain]
-[data-background="images/archi-runtime.png"]
-=== .
-
-[%notitle]
-[data-transition=none]
-[data-background-size=contain]
-[data-background="images/archi-sdm.png"]
-=== .
-
-[%notitle]
-[data-transition=none]
-[data-background="images/archi-survol.png"]
-[data-background-size=contain]
-=== .
-
-[%notitle]
-[data-transition=none]
-[data-background-size=contain]
-[data-background="images/archi-compil-zoom.png"]
-=== .
-
-[%notitle]
-[data-transition=none]
-[data-background-size=contain]
-[data-background="images/archi-runtime-zoom.png"]
-=== .
-
-[%notitle]
-[data-transition=none]
-[data-background-size=contain]
-[data-background="images/archi-sdm-zoom.png"]
-=== .
+=== The basics
 
 === Java/Javascript communication
 
+We need to make the java application communicate with the javascript Angular 2 runtime.
+
 JsInterop can do that.
-
-**Java** can provide components to **Angular** runtime.
-
-And vice-versa.
 
 === Feeding Angular with metadatas
 
-Angular requires metadata on components (_DI, routing, inputs/ouputs, ..._)
+Angular requires metadata on components (_DI, routing, inputs/ouputs, ..._) 
+and uses ES7/Typescript **decorators** (ex *@Component()*) for this purpose.
 
-Angular uses ES7/Typescript **decorators** (ex *@Component()*).
-
-Those decorators alter component's constructor at runtime.
-
-Less required _boilerplate_ code.
+Those decorators alter component's constructor at runtime so that less _boilerplate_ code is required.
 
 === In Java?
 
@@ -626,20 +258,10 @@ And generate RTTI code for Angular.
 === How?
 
 - JSR-269 is used to generate RTTI,
-- Use Angular JS api through JsInterop to provide the RTTI.
-
-=== How?
-
-- Fetch Java class compiled JS constructor at runtime with JsInterop,
+- Use Angular JS API through JsInterop to provide the RTTI.
+- Fetch Java class compiled JS constructor at runtime,
 - Patch it with Angular required metadata,
-- Provide the patched constructor function to Angular. 
-
-
-=== Consistent syntax
-
-The developper should be able to read JS documentation and know _how_ to code in Java.
-
-In brief, we want syntax consistency.
+- Provide the patched constructor function to Angular.
 
 === Typescript written component
 
@@ -689,6 +311,41 @@ public class HeroDetailComponent implements OnInit
 ----
 
 
+=== Consistent syntax
+
+The developper should be able to read JS documentation and know _how_ to code in Java.
+
+In brief, we want syntax consistency.
+
+
+=== Architecture
+
+[%notitle]
+[data-transition=none]
+[data-background="images/archi-survol.png"]
+[data-background-size=contain]
+=== .
+
+[%notitle]
+[data-transition=none]
+[data-background-size=contain]
+[data-background="images/archi-compil.png"]
+=== .
+
+[%notitle]
+[data-transition=none]
+[data-background-size=contain]
+[data-background="images/archi-runtime.png"]
+=== .
+
+[%notitle]
+[data-transition=none]
+[data-background-size=contain]
+[data-background="images/archi-sdm.png"]
+=== .
+
+=== Now, the problems
+
 === Module loading problem
 
 GWT is not SystemJS (ES7 modules) friendly.
@@ -709,22 +366,14 @@ Angular 2 requires a strict environment to be built.
 
 Docker to the rescue!
 
-=> From RC6 to final: 1 hour of work!
+=> From RC6 to 2.0 final: 1 hour of work!
 
 === Legacy GWT Widgets integration
 
-In fact it worked out of the box, no problem, cool!
+Works both ways :
 
-`WidgetAdapterPanel`...
-
-=== Emulating ES6 get and set operators
-
-Java does not provide this language facility...
-
-JsInterop neither...
-
-So we use JSR-269 to generate trampoline functions, triggered by `@PropertyGetter` and `@Input` annotations.
-
+- GWT widgets inside an Angular2Boot application: `WidgetAdapterPanel`.
+- Angular 2 components in a legacy GWT application: `AngularComponentContainerWidget`.
 
 === Testing
 
@@ -733,8 +382,11 @@ So we use JSR-269 to generate trampoline functions, triggered by `@PropertyGette
 
 === Unit tests
 
-- No production-ready way to do that with Angular yet,
-- Difficult to use the `GWTTestCase` facility (need to bootstrap Angular in the testing environment which runs under HTMLUnit which is not ready for ES6. More, GWT uses Jetty as a testing backend but we want to be able to use **any** backend - Angular2Boot uses SpringBoot).
+Difficult to use the `GWTTestCase` facility
+
+HTMLUnit does not support Angular 2 runtime (not ES6 compatible)
+
+More, GWT uses Jetty as a testing backend but we want to be able to use **any** backend (eg. SpringBoot).
 
 No real solution yet...
 
@@ -742,62 +394,25 @@ No real solution yet...
 
 Using **Selenium WebDriver** and **Spring** integration testing facilities, it is done easily!
 
-== Demo!
-
-[%notitle]
-[data-background="images/orchard-blueprint.jpg"]
-[data-background-size=contain]
-=== .
-
-[%notitle]
-[data-background="images/orchard-tree.jpg"]
-[data-background-size=contain]
-=== .
-
-
-== Advantages of Angular2Boot
-
-- Developper doesn't need to know internals of Angular2Gwt, everything is taken care of.
-- Workflow is really comfortable.
-- GWT compilation without User module (Widgets) is dead fast.
-- Really easy to bootstrap a working application (only one maven dependency in fact).
-- Optimizations done by GWT are still very powerful: fast application, small download.
-
-
-== Javascript and Java commmunities need to exchange!
-
-- WebPack inspired by GWT's code splitting,
-- Problems solved by Java since 20 years should inspire JS!
-- Dynamism of the JS ecosystem should inpire Java!
-
-
-== Use cases
-
-- 100% Java applications (small or big),
-- Service implementations in Java (strongly typed Web service interfacing),
-- JS, Typescript and Java integration,
-- Would fit well with JHipster...
-
-
 == Future work, ideas
 
 === Generate UI code from model objects
 
 Code generation is not easy in Javascript but really easy in Java.
 
-(see http://www.lteconsulting.fr/annotation-processing/#/[GWTCon talk on JSR-269]).
+(see last year http://www.lteconsulting.fr/annotation-processing/#/[GWTCon talk on JSR-269]).
 
 === Generate service access code from backend interface
 
-Same idea as the previous one...
+Code generation, again...
 
 === TS definitions generation 
 
 Generate TS descriptions of Java components for easy integration of Java components into a TS Angular application.
 
-=== Run Angular in Nashorn to do server-side rendering (Angular Universal)
+=== Angular in Nashorn for server-side rendering (Angular Universal)
 
-=== Try that in NativeScript
+=== Angular2Boot with NativeScript
 
 === Module loading
 
@@ -805,27 +420,70 @@ Not easy!
 
 Best is maybe to wait for GWT3 (J2Cl) which will be more ES7 module friendly.
 
-This will allow more AOT compilation optimizations (Angular compiler may be able to work on the generated code).
+This will allow more AOT compilation optimizations (Angular AOT compiler may be able to work on the generated code).
 
 Better integration with JS build and packaging tools.
 
-=== Static analysis of Java code is really easy!
-
-=== Bundling the GWT generated JS together with Angular runtime for better compression.
 
 
+== Conclusions
+
+=== Javascript and Java commmunities need to exchange!
+
+- WebPack inspired by GWT's code splitting,
+- Problems solved by Java since 20 years should inspire JS!
+- Dynamism of the JS ecosystem should inpire Java!
+
+=== Use cases
+
+- 100% Java applications (small or big),
+- Service implementations in Java (strongly typed Web service interfacing),
+- JS, Typescript and Java integration,
+- Would fit well with JBoss Forge and JHipster...
+
+=== How cool is that?
+
+- Tested on few projects, was very impressive! Workflow is really comfortable.
+- Dead simple bootstrapping (only one maven dep, simpler than Angular 2 itself!).
+- GWT compilation without User module (Widgets) is dead fast.
+- Gives GWT a second youth! (only uses the core).
+- Optimizations done by GWT are still very powerful: fast application, small download.
 
 
+=== Easy to try
+
+[source]
+----
+mvn archetype:generate \
+  -DarchetypeGroupId=fr.lteconsulting \
+  -DarchetypeArtifactId=angular2-gwt.archetype \
+  -DarchetypeVersion=1.6
+  
+mvn clean install # produces an executable fat jar
+
+java -jar target/YOUR_ARTIFACT_ID.jar
+----
+
+=== Compile on reload
+
+[source]
+----
+# Backend
+mvn spring-boot:run
+
+# Frontend
+mvn gwt:run-codeserver
+----
 
 
-== Conclusion
-
-- Tested on little projects, was very impressive!
-- Gives GWT a second youth! (only uses the core of it).
-- (IMHO) Take the opportunity to throw some rules out of the window! (getter/setter, naming, ...).
-
-== Questions?
+== Demo
 
 == Thanks, it was a pleasure!
 
+Maybe you have questions?
+
+Try it!
+
 http://lteconsulting.fr/angular2boot/[lteconsulting.fr/angular2boot]
+
+Twitter: https://twitter.com/ltearno[@ltearno]
