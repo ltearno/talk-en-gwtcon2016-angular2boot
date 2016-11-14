@@ -59,3 +59,6 @@ HW access is now available from the browser
 
 ARCHETYPE : gwt-pwa-archetype
 
+<link type="manifest" href="manifest.json"/>
+
+Site web : "Progressive applications rocks"
