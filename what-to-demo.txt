@@ -1,0 +1,61 @@
+Angular2Gwt is one proof JsInterop fulfills its objective
+
+Basic archetype => Data Binding
+
+@Input @Output
+
+REST communication
+
+GWT Integration
+
+Memos (integration with Materialize)
+
+INTEGRATION TESTS
+
+WebSite: Tour-Of-Heroes
+Show the Github
+
+
+
+
+
+
+
+
+
+KEYNOTE [Daniel Kurka]
+
+JAva 2 JavaScript
+
+JsInterop Generator
+
+==> demander à Daniel si il peut me générer les stubs angular2 pour voir
+
+
+Compatible with Guava 20
+
+System.getProperty() => USE -setProperty at the command line
+
+
+GWT in the PWA era
+
+responsive, offline, can be installes on device home-screen
+deliver an app-like experience
+
+Defined by Alex Russel on 2015-06 (PWA manifest)
+
+Connectivity : Service Workers, HTTP2
+
+Application Shell
+
+Offline first : Service Workers, HTTPS is mandatory, offline cache replaces HTML5 AppCache
+
+Offline data : local storage, ... But out of the box, Firebase, PouchDB+CouchDB
+
+Add to the home screen : WebAppManifiest : for Chrome
+Native Install Banners : Chrome only (c'est ce qui fait que le navigateur propose d'installer la page en tant qu'application)
+
+HW access is now available from the browser
+
+ARCHETYPE : gwt-pwa-archetype
+

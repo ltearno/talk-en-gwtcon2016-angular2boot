@@ -54,7 +54,7 @@ Integrating Angular 2 and GWT 2.8:
 
 **problems** and **solutions**...
 
-=== Why?
+=== Why do that?
 
 I want to benefit from the **best UI coding paradigms** (Data binding, DI, ...).
 
@@ -64,11 +64,11 @@ I want to be **more productive**.
 
 I want to be in phase with the **future**.
 
+_(I may want to progressively migrate an existing app)_
+
 === The problem
 
-Angular 2 natively supports Typescript and Javascript.
-
-Angular 2 for Dart is maintained by the Dart team.
+Angular 2 natively supports Typescript, Javascript and Dart.
 
 But Java is not in the party, **let's remedy!**
 
@@ -174,21 +174,13 @@ _(done by patching most of the browsers async functions)_
 
 
 
-== GWT 2.8
+== GWT in Angular2Boot
 
-- Javascript ecosystem rocks! (we need to leverage that)
-- Evergreen browsers are compatible (not requiring a layer above them anymore)
-- Widgets and so many things will be dropped anyway!
-- JsInterop eases JS/Java integration.
-- Java 8 language.
-
-It's time for your application to prepare and find a way for the future.
-
-=== GWT in Angular2Boot
-
-- Only use the compiler,
+- Only uses the compiler,
 - JsInterop used a lot,
-- No widgets, no `User` module (unless you want to mix legacy GWT and Angular)
+- No widgets, no `User` module (unless you want to mix legacy GWT and Angular).
+
+Because that's how future will look like.
 
 
 
@@ -396,6 +388,10 @@ Using **Selenium WebDriver** and **Spring** integration testing facilities, it i
 
 == Future work, ideas
 
+=== PWA application
+
+Thanks Mañolo, you inspired me ;)
+
 === Generate UI code from model objects
 
 Code generation is not easy in Javascript but really easy in Java.
@@ -420,7 +416,7 @@ Not easy!
 
 Best is maybe to wait for GWT3 (J2Cl) which will be more ES7 module friendly.
 
-This will allow more AOT compilation optimizations (Angular AOT compiler may be able to work on the generated code).
+Will allow more AOT compilation optimizations (Angular AOT compiler may be able to work on the generated code).
 
 Better integration with JS build and packaging tools.
 
